@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import DBConnect.DBConnect;
 
+
 import com.ezen.member.dto.MemberDto;
 
 public class MemberDao {
@@ -17,9 +18,9 @@ public class MemberDao {
 	private static MemberDao list = new MemberDao();
 	public static MemberDao getInstance() { return list; }
 	
-	Connection con = null;
-	PreparedStatement pstmt = null;
-	ResultSet rs = null;
+	private Connection con = null;
+	private PreparedStatement pstmt = null;
+	private ResultSet rs = null;
 	
 	
 
@@ -42,14 +43,12 @@ public class MemberDao {
 				mdto.setAdmin(rs.getInt("admin"));
 			}
 		} catch (SQLException e) { e.printStackTrace();
-		} finally { close(); }
+		} finally { DBConnect.close(); }
 		
 		return mdto;
 	}
-	private void close() {
-		// TODO Auto-generated method stub
-		
-	}
+
+
 	public int insertMember(MemberDto mdto) {
 		int result = 0;
 		String sql = "insert into member(userid,name,pwd,phone,email,admin)"
@@ -66,7 +65,7 @@ public class MemberDao {
 			result = pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
-		} finally { close(); }
+		} finally {  DBConnect.close(); }
 		
 		return result;
 	}
@@ -86,7 +85,7 @@ public class MemberDao {
 			result = pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
-		} finally { close(); }
+		} finally { DBConnect.close(); }
 		
 		return result;
 	}
@@ -108,7 +107,7 @@ public class MemberDao {
 				list.add(mdto); 
 			}
 		} catch (SQLException e) {e.printStackTrace();
-		} finally {close();}
+		} finally { DBConnect.close();}
 		return list;
 	}
 	public void editAdmin(String userid, int admin) {
@@ -121,7 +120,7 @@ public class MemberDao {
 			pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
-		} finally { close(); }
+		} finally { DBConnect.close(); }
 	}
 	public void deleteMember(String userid) {
 		String sql = "delete from member where userid=?";
@@ -132,7 +131,7 @@ public class MemberDao {
 			pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
-		} finally { close(); }
+		} finally { DBConnect.close(); }
 	}
 
 }
