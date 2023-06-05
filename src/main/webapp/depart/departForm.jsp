@@ -29,16 +29,41 @@
 				<td>${loginUser.phone}</td>
 			</tr>
 			<tr>
-				<td>등급</td>
+				<td>부서명</td>
+				<td>${loginUser.phone}</td>
+			</tr>
+			<tr>
+				<td>직급</td>
+				<td>${loginUser.phone}</td>
+			</tr>
+			<tr>
+				<td>주소</td>
+				<tr>
+					<td><input name=address type="text"></td>
+				</tr>
+			</tr>
+			<tr>
+			<tr>
+				<td>외부사용자 여부</td>
 				<td>
-					<input type="radio" name="admin" value="0" checked="checked">일반회원
-					&nbsp;&nbsp;<input type="radio" name="admin" value="1">관리자
+					외부사용자:<input type="radio">
+					내부사용자:<input type="radio">
+				</td>
+				
+				<td>공개여부</td>
+				<td>
+					공개:<input type="radio">
+					비공개:<input type="radio">
 				</td>
 			</tr>
 			<tr>
+				<td>비고</td>
+				<td><input type="text"></td>
+			</tr>
 				<td colspan="2" align="center">
-					<input type="submit" value="회원가입" onclick="return joinCheck()">
+					<input type="submit" value="명함등록" onclick="return joinCheck()">
 					<input type="reset" value="취소">
+					<input type="button" value="목록">
 				</td>
 			</tr>
 		</table>

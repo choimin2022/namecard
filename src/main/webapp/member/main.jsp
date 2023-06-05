@@ -3,6 +3,9 @@
 <c:if test="${empty loginUser}">
 	<jsp:forward page="member.do?command=loginForm"/>
 </c:if>
+<c:if test="${empty departCheck}">
+	<jsp:forward page="member.do?command=departForm"/>
+</c:if>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,6 +14,34 @@
 	<script src="script/member.js"></script>
 </head>
 <body>
+		<table>
+		<tr><label>명함정보</label></tr>
+				
+		
+		<tr>
+			<td>글넘버</td>
+			<td>아이디</td>
+			<td>이름</td>
+			<td>직급</td>
+			<td>주소</td>
+			<td>등록날짜</td>
+		</tr>
+		
+		<tr>
+			<td>${loginUser.d_code}</td>
+			<td>${loginUser.userid}</td>
+			<td>${loginUser.d_name}</td>
+			<td>${loginUser.d_task}</td>
+			<td>${loginUser.d_date}</td>
+			<td>${loginUser.d_adr}<td>
+		</tr>
+		
+	
+	
+	
+	</table>
+	
+
 	<table>
 		<tr><td>안녕하세요. ${loginUser.name}(${loginUser.userid})님</td></tr>
 		<tr><td>email : ${loginUser.email}</td></tr>
@@ -23,7 +54,7 @@
 					   onClick="location.href='member.do?command=updateForm'">
 				<input type="button" value="회원 탈퇴" 
 					   onClick="deleteMember();">
-				<input type="button" value="부서등록" 
+				<input type="button" value="명함등록" 
 					   onClick="location.href='member.do?command=departForm'">
 			</td>
 		</tr>

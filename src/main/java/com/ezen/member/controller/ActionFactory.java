@@ -12,6 +12,7 @@ import com.ezen.member.controller.action.LoginFormAction;
 import com.ezen.member.controller.action.MainAction;
 import com.ezen.member.controller.action.UpdateAction;
 import com.ezen.member.controller.action.UpdateFormAction;
+import com.ezen.member.controller.action.departFormAction;
 
 public class ActionFactory {
 	private ActionFactory() {};
@@ -31,6 +32,7 @@ public class ActionFactory {
 		else if(command.equals("main")) ac = new MainAction();
 		else if(command.equals("editAdmin")) ac = new EditAdminAction();
 		else if(command.equals("deleteMember")) ac = new DeleteMemberAction();
+		else if(command.equals("departMember")) ac = new departFormAction();
 		return ac;
 	}
 }

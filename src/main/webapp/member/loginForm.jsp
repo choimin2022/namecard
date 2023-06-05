@@ -7,6 +7,31 @@
 	<script src="script/member.js"></script>
 </head>
 <body>
+	<table>
+		<tr>
+			<td>글넘버</td>
+			<td>아이디</td>
+			<td>이름</td>
+			<td>직급</td>
+			<td>주소</td>
+			<td>등록날짜</td>
+		</tr>
+		
+		<tr>
+			<td>아이디</td>
+			<td></td>
+		</tr>
+		
+		<tr>
+			<td></td>
+			<td></td>
+		</tr>
+	
+	
+	
+	</table>
+
+
 	<form action="member.do" method="post" name="frm">
 		<input type="hidden" name="command" value="login">
 		<table>
