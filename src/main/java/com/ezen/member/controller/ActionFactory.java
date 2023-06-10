@@ -1,18 +1,10 @@
 package com.ezen.member.controller;
 
 import com.ezen.member.controller.action.Action;
-import com.ezen.member.controller.action.DeleteMemberAction;
-import com.ezen.member.controller.action.EditAdminAction;
-import com.ezen.member.controller.action.IdCheckAction;
-import com.ezen.member.controller.action.JoinAction;
-import com.ezen.member.controller.action.JoinFormAction;
-import com.ezen.member.controller.action.LogOutAction;
-import com.ezen.member.controller.action.LoginAction;
-import com.ezen.member.controller.action.LoginFormAction;
-import com.ezen.member.controller.action.MainAction;
-import com.ezen.member.controller.action.UpdateAction;
-import com.ezen.member.controller.action.UpdateFormAction;
-import com.ezen.member.controller.action.departFormAction;
+
+import com.ezen.member.controller.action.*;
+import vo.PageInfo;
+
 
 public class ActionFactory {
 	private ActionFactory() {};
@@ -32,7 +24,15 @@ public class ActionFactory {
 		else if(command.equals("main")) ac = new MainAction();
 		else if(command.equals("editAdmin")) ac = new EditAdminAction();
 		else if(command.equals("deleteMember")) ac = new DeleteMemberAction();
-		else if(command.equals("departMember")) ac = new departFormAction();
+		else if(command.equals("departmember")) ac = new departMemberForm();
+		else if(command.equals("departaction")) ac = new departAction();
+		else if(command.equals("departlistaction")) ac = new departListAction();
+		else if(command.equals("departdetail")) ac = new departDetailForm();
+		else if(command.equals("departedit")) ac = new departEditForm();
+		else if(command.equals("departeditaction")) ac = new departEditAction();
+		else if(command.equals("departdel")) ac = new departDelForm();
+		else if(command.equals("departdel")) ac = new PageInfo();
+
 		return ac;
 	}
 }

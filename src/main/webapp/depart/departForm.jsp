@@ -1,25 +1,34 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>회원 가입</title>
 </head>
 <body>
-	<h2>회원 가입</h2> '*' 표시 항목은 필수 입력 항목입니다.
-	<form action=""member.do?command=departBoard" method="post" name="frm">
-		<input type="hidden" name="command" value="join">
+	<h2>회원 가입</h2>
+	<p>'*' 표시 항목은 필수 입력 항목입니다.</p>
+	<form action="member.do" method="post" name="businesscard">
+		<input type="hidden" name="command" value="departaction">
 		<table>
+			
+			<tr>
+				<td>코드</td>		
+				<td><input name="d_code" type="text"></td>	
+			</tr>
+			
 			<tr>
 				<td>이름</td>
 				<td>${loginUser.name}</td>
 			</tr>
 			<tr>
-				<td>아이디</td>
-<					<td>${loginUser.userid}</td>
+				<td>부서</td>
+				<td><input name="d_name" type="text"></td>	
 			</tr>
-
+			<tr>
+				<td>아이디</td>
+				<td>${loginUser.userid}</td>
+			</tr>
 			<tr>
 				<td>이메일</td>
 				<td>${loginUser.email}</td>
@@ -29,41 +38,23 @@
 				<td>${loginUser.phone}</td>
 			</tr>
 			<tr>
-				<td>부서명</td>
-				<td>${loginUser.phone}</td>
-			</tr>
-			<tr>
-				<td>직급</td>
-				<td>${loginUser.phone}</td>
+				<td>직급</td>		
+				<td><input name="d_task" type="text"></td>	
 			</tr>
 			<tr>
 				<td>주소</td>
-				<tr>
-					<td><input name=address type="text"></td>
-				</tr>
+				<td><input name="d_address" type="text"></td>
 			</tr>
 			<tr>
-			<tr>
-				<td>외부사용자 여부</td>
-				<td>
-					외부사용자:<input type="radio">
-					내부사용자:<input type="radio">
-				</td>
-				
-				<td>공개여부</td>
-				<td>
-					공개:<input type="radio">
-					비공개:<input type="radio">
-				</td>
+				<td>이미지</td>
+				<td><input type="text" name="d_img"></td>
 			</tr>
+			
 			<tr>
-				<td>비고</td>
-				<td><input type="text"></td>
-			</tr>
 				<td colspan="2" align="center">
-					<input type="submit" value="명함등록" onclick="return joinCheck()">
+					<input type="submit" value="명함등록">
 					<input type="reset" value="취소">
-					<input type="button" value="목록">
+					<input type="button" value="목록으로" onClick="location.href='member.do?command=main'">
 				</td>
 			</tr>
 		</table>

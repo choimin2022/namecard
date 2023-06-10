@@ -133,5 +133,27 @@ public class MemberDao {
 			e.printStackTrace();
 		} finally { DBConnect.close(); }
 	}
-
+	
+	public MemberDto getMemberFromTable(String userid) {
+	    MemberDto mdto = null;
+	    
+	    String sql = "SELECT userid, name FROM member WHERE userid = ?";
+	    con = DBConnect.getConnection();
+	    try {
+	        pstmt = con.prepareStatement(sql);
+	        pstmt.setString(1, userid);
+	        rs = pstmt.executeQuery();
+	        if (rs.next()) {
+	            mdto = new MemberDto();
+	            mdto.setUserid(rs.getString("userid"));
+	            mdto.setName(rs.getString("name"));
+	        }
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    } finally {
+	        DBConnect.close();
+	    }
+	    
+	    return mdto;
+	}
 }

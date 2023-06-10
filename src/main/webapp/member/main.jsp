@@ -3,9 +3,7 @@
 <c:if test="${empty loginUser}">
 	<jsp:forward page="member.do?command=loginForm"/>
 </c:if>
-<c:if test="${empty departCheck}">
-	<jsp:forward page="member.do?command=departForm"/>
-</c:if>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,32 +12,6 @@
 	<script src="script/member.js"></script>
 </head>
 <body>
-		<table>
-		<tr><label>명함정보</label></tr>
-				
-		
-		<tr>
-			<td>글넘버</td>
-			<td>아이디</td>
-			<td>이름</td>
-			<td>직급</td>
-			<td>주소</td>
-			<td>등록날짜</td>
-		</tr>
-		
-		<tr>
-			<td>${loginUser.d_code}</td>
-			<td>${loginUser.userid}</td>
-			<td>${loginUser.d_name}</td>
-			<td>${loginUser.d_task}</td>
-			<td>${loginUser.d_date}</td>
-			<td>${loginUser.d_adr}<td>
-		</tr>
-		
-	
-	
-	
-	</table>
 	
 
 	<table>
@@ -55,7 +27,9 @@
 				<input type="button" value="회원 탈퇴" 
 					   onClick="deleteMember();">
 				<input type="button" value="명함등록" 
-					   onClick="location.href='member.do?command=departForm'">
+					   onClick="location.href='member.do?command=departmember'">
+				<input type="button" value="명함목록" 
+					   onClick="location.href='member.do?command=departlistaction'">
 			</td>
 		</tr>
 	</table>
