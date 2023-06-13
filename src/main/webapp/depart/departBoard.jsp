@@ -71,18 +71,17 @@
                     <input type="button" value="상세보기" onclick="location.href='member.do?command=departdetail&userid=${depart_member.userid}'">
                 </div>
             </div>
-            <c:if test="${status.index % 3 == 2 || status.last}">
-                </div>
-            </c:if>
+
         </c:forEach>
     </div>
 <c:choose>
     <c:when test="${pageInfo.maxPage > 1}">
         <div>
-            <c:if test="${pageInfo.startPage > 1}">
+            <c:if test="${pageInfo.startPage > 0}">
                 <a href="?command=departlistaction&page=1">처음</a>
-                <a href="?command=departlistaction&page=${pageInfo.startPage - 1}">이전</a>
+                <a href="?command=departlistaction&page=${pageInfo.page - 1}">이전</a>
             </c:if>
+            
 
             <c:forEach var="pageNum" begin="${pageInfo.startPage}" end="${pageInfo.endPage}">
                 <c:if test="${pageNum == pageInfo.page}">
@@ -94,8 +93,11 @@
                
 </c:if>
         </c:forEach>
-		<c:if test="${pageInfo.endPage < pageInfo.maxPage}">        
-		<a href="?command=departlistaction&page=${pageInfo.endPage + 1}">다음</a>
+            <c:if test="${pageInfo.startPage <= pageInfo.page}">
+					<a href="?command=departlistaction&page=${pageInfo.page + 1}">다음</a>
+            </c:if>
+		<c:if test="${pageInfo.endPage <= pageInfo.maxPage}">        
+		<!--  <a href="?command=departlistaction&page=${pageInfo.endPage + 1}">다음</a>-->
 		<a href="?command=departlistaction&page=${pageInfo.maxPage}">마지막</a>
    
 </c:if>

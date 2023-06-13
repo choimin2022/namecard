@@ -12,10 +12,6 @@
 		<input type="hidden" name="command" value="departaction">
 		<table>
 			
-			<tr>
-				<td>코드</td>		
-				<td><input name="d_code" type="text"></td>	
-			</tr>
 			
 			<tr>
 				<td>이름</td>
