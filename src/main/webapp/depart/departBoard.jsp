@@ -79,7 +79,7 @@
         <div>
             <c:if test="${pageInfo.startPage > 0}">
                 <a href="?command=departlistaction&page=1">처음</a>
-                <a href="?command=departlistaction&page=${pageInfo.page - 1}">이전</a>
+                <!--<a href="?command=departlistaction&page=${pageInfo.page - 1}">이전</a>-->
             </c:if>
             
 
@@ -93,9 +93,9 @@
                
 </c:if>
         </c:forEach>
-            <c:if test="${pageInfo.startPage <= pageInfo.page}">
+           <!-- <c:if test="${pageInfo.startPage <= pageInfo.page}">
 					<a href="?command=departlistaction&page=${pageInfo.page + 1}">다음</a>
-            </c:if>
+            </c:if>-->
 		<c:if test="${pageInfo.endPage <= pageInfo.maxPage}">        
 		<!--  <a href="?command=departlistaction&page=${pageInfo.endPage + 1}">다음</a>-->
 		<a href="?command=departlistaction&page=${pageInfo.maxPage}">마지막</a>
