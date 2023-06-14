@@ -65,6 +65,7 @@
                 <h3>${depart_member.d_name}</h3>
                 <div class="card-text">
                     <p><strong>직급:</strong> ${depart_member.d_task}</p>
+                    <p><strong>이름:</strong>${depart_member.name} </p>
                     <p><strong>이미지:</strong> ${depart_member.d_img}</p>
                     <p><strong>날짜:</strong> ${depart_member.d_date}</p>
                     <!--원래는 d_num으로 불러오지만 계정에 따라 불러오는 방식을 다르게 할려면 userid를 불러와야 함 -->
@@ -77,10 +78,10 @@
 <c:choose>
     <c:when test="${pageInfo.maxPage > 1}">
         <div>
-            <c:if test="${pageInfo.startPage > 0}">
+            <c:if test="${pageInfo.startPage > 0 and pageInfo.page != 1}">
                 <a href="?command=departlistaction&page=1">처음</a>
-                <!--<a href="?command=departlistaction&page=${pageInfo.page - 1}">이전</a>-->
-            </c:if>
+                <a href="?command=departlistaction&page=${pageInfo.page - 1}">이전</a>
+           </c:if>
             
 
             <c:forEach var="pageNum" begin="${pageInfo.startPage}" end="${pageInfo.endPage}">
@@ -93,10 +94,10 @@
                
 </c:if>
         </c:forEach>
-           <!-- <c:if test="${pageInfo.startPage <= pageInfo.page}">
+           <c:if test="${pageInfo.startPage <= pageInfo.page and pageInfo.page != pageInfo.maxPage}">
 					<a href="?command=departlistaction&page=${pageInfo.page + 1}">다음</a>
-            </c:if>-->
-		<c:if test="${pageInfo.endPage <= pageInfo.maxPage}">        
+            </c:if>
+		<c:if test="${pageInfo.endPage <= pageInfo.maxPage and pageInfo.page != pageInfo.maxPage}">        
 		<!--  <a href="?command=departlistaction&page=${pageInfo.endPage + 1}">다음</a>-->
 		<a href="?command=departlistaction&page=${pageInfo.maxPage}">마지막</a>
    

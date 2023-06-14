@@ -9,18 +9,14 @@
     <h1>Depart Details</h1>
     
     <table>
-        <tr>
-            <th>Num</th>
-            <td>${depart_member.d_num}</td>
-        </tr>
-        <tr>
+      	  <tr>
             <th>Name</th>
-            <td>${depart_member.d_name}</td>
+            <td>${depart_member.name}</td>
         </tr>
         <tr>
-            <th>Code</th>
-            <td>${depart_member.d_code}</td>
-        </tr>
+            <th>D_name</th>
+            <td>${depart_member.d_name}</td>
+        </tr>   
         <tr>
             <th>UserID</th>
             <td>${depart_member.userid}</td>

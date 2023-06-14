@@ -4,6 +4,7 @@ public class Depart_memberDTO {
 	   private int d_num;
 	   private String d_code;
 	   private String userid;
+	   private String name;
 	   private String d_name;
 	   private String d_task;
 	   private String d_address;
@@ -29,6 +30,12 @@ public class Depart_memberDTO {
 	   public void setUserid(String userid) {
 	      this.userid = userid;
 	   }
+	   public String getName() {
+		      return name;
+		   }
+		   public void setName(String name) {
+		      this.name = name;
+		   } 
 	   public String getD_name() {
 	      return d_name;
 	   }

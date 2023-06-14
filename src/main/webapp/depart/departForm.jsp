@@ -12,11 +12,15 @@
 		<input type="hidden" name="command" value="departaction">
 		<table>
 			
-			
+			<tr>
+				<td>코드</td>
+				<td><input name="d_code" type="text"></td>	
+			</tr>		
 			<tr>
 				<td>이름</td>
 				<td>${loginUser.name}</td>
 			</tr>
+			
 			<tr>
 				<td>부서</td>
 				<td><input name="d_name" type="text"></td>	

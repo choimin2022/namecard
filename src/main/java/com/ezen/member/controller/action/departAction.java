@@ -35,6 +35,7 @@ public class departAction implements Action {
         Depart_memberDTO departMemberDto = new Depart_memberDTO();
         departMemberDto.setD_code(request.getParameter("d_code"));
         departMemberDto.setUserid(userid);
+        departMemberDto.setName(name);
         departMemberDto.setD_name(request.getParameter("d_name"));
         departMemberDto.setD_task(request.getParameter("d_task"));
         departMemberDto.setD_address(request.getParameter("d_address"));

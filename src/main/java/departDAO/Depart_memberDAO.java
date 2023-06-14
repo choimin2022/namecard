@@ -39,6 +39,7 @@ public class Depart_memberDAO {
 				departMember.setD_num(rs.getInt("d_num"));
 				departMember.setD_code(rs.getString("d_code"));
 				departMember.setUserid(rs.getString("userid"));
+				departMember.setD_name(rs.getString("name"));
 				departMember.setD_name(rs.getString("d_name"));
 				departMember.setD_task(rs.getString("d_task"));
 				departMember.setD_address(rs.getString("d_address"));
@@ -52,17 +53,18 @@ public class Depart_memberDAO {
 	}
 	public int insertDepart_Member(Depart_memberDTO mdto) { //명함등록
 		int result = 0;
-		String sql = "insert into depart_member(d_code,userid,d_name,d_task,d_address,d_img)"
-				+ " values(?,?,?,?,?,?)";
+		String sql = "insert into depart_member(d_code,userid,name,d_name,d_task,d_address,d_img)"
+				+ " values(?,?,?,?,?,?,?)";
 		con = DBConnect.getConnection();
 		try {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, mdto.getD_code());
 			pstmt.setString(2, mdto.getUserid());
-			pstmt.setString(3, mdto.getD_name());
-			pstmt.setString(4, mdto.getD_task());
-			pstmt.setString(5, mdto.getD_address());
-			pstmt.setString(6, mdto.getD_img());
+			pstmt.setString(3, mdto.getName());
+			pstmt.setString(4, mdto.getD_name());
+			pstmt.setString(5, mdto.getD_task());
+			pstmt.setString(6, mdto.getD_address());
+			pstmt.setString(7, mdto.getD_img());
 			result = pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -87,6 +89,7 @@ public class Depart_memberDAO {
                 int d_num = rs.getInt("d_num");
                 String d_code = rs.getString("d_code");
                 String userid = rs.getString("userid");
+                String name = rs.getString("name");
                 String d_name = rs.getString("d_name");
                 String d_task = rs.getString("d_task");
                 String d_address = rs.getString("d_address");
@@ -97,6 +100,7 @@ public class Depart_memberDAO {
                 memberDTO.setD_num(d_num);
                 memberDTO.setD_code(d_code);
                 memberDTO.setUserid(userid);
+                memberDTO.setName(name);
                 memberDTO.setD_name(d_name);
                 memberDTO.setD_task(d_task);
                 memberDTO.setD_address(d_address);
@@ -131,6 +135,7 @@ public class Depart_memberDAO {
 	            if (rs.next()) {
 	                member = new Depart_memberDTO();
 	                member.setD_num(rs.getInt("d_num"));
+	                member.setName(rs.getString("name"));
 	                member.setD_name(rs.getString("d_name"));
 	                member.setD_code(rs.getString("d_code"));
 	                member.setUserid(rs.getString("userid"));

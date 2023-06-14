@@ -7,7 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import DBConnect.DBConnect;
-
+import departDTO.Depart_memberDTO;
 
 import com.ezen.member.dto.MemberDto;
 
@@ -156,4 +156,39 @@ public class MemberDao {
 	    
 	    return mdto;
 	}
+	
+	 public MemberDto getDepartMemberById(String userid) { //계정에 따른 명함 select
+	        Connection conn = null;
+	        PreparedStatement pstmt = null;
+	        ResultSet rs = null;
+	        MemberDto member = null;
+
+	        try {
+	        	conn =  DBConnect.getConnection(); // 데이터베이스 연결을 위한 메서드 호출
+
+	            String sql = "SELECT * FROM member WHERE userid = ?";
+	            pstmt = conn.prepareStatement(sql);
+	            pstmt.setString(1, userid);
+	            rs = pstmt.executeQuery();
+
+	            if (rs.next()) {
+	                member = new MemberDto();
+	                member.setName(rs.getString("name"));
+	                member.setUserid(rs.getString("userid"));
+	                member.setPwd(rs.getString("pwd"));
+	                member.setEmail(rs.getString("email"));
+	                member.setPhone(rs.getString("phone"));
+	            }
+	           } catch (SQLException e) {
+	            e.printStackTrace();
+	        } finally {
+	            // 리소스 해제
+	        	DBConnect.close();
+	        }
+
+	        return member;
+	        }
+	 
+	 	
+
 }
