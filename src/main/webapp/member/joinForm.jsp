@@ -4,9 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <title>Join Form</title>
-  <style>
 	<link rel="stylesheet" type="text/css" href="/memberMGR/css/main/joinForm.css">
-  </style>
+  
   <script src="script/member.js"></script>
 </head>
 <body>
